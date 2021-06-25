@@ -19,4 +19,4 @@ This project was part of the #Codecadamy# full stack developer course
 
 ## Status
 
-Program is written but not debugged
+*Project is complete*

@@ -1,4 +1,4 @@
-const morningActivitys = ['Read Newspaper', 'Strech', 'Code', 'Watch a short Video', 'Go for a Walk', 'Go for a run', 'Do some strengh training', 'clean up', 'listen to music', 'write a letter to a freind']
+const morningActivitys = ['Read Newspaper', 'Strech', 'Code', 'Watch a short Video', 'Go for a Walk', 'Go for a run', 'Do some strength training', 'clean up', 'listen to music', 'write a letter to a freind']
 
 const breakfestFoods = ['Eggs', 'toast', 'Frenchtoast', 'Orange', 'Bacon', 'Sausage', 'Strawberrys', 'Sweet Potato Hash', 'Potato Hash', 'Cerieal', 'Pancakes']
 
@@ -14,7 +14,7 @@ const getRandom = (list) => {
 const getSchedule = () =>{
     let schedule = []
     count = 0
-    while(count > 90){
+    while(count < 90){
         let time = getRandom(timeIntervils)
         if(count + time <= 90){
             count += time
@@ -34,15 +34,17 @@ const getMorningRoutine = () => {
     return todaysActivitys
 }
 
-const get activityList = () => {
+const getActivityList = () => {
     const morningRoutine = getMorningRoutine()
     routineString = ''
     morningRoutine.forEach(activity => {
-        routineString += `-${activity}
-        `
+        routineString += `  -${activity}
+`
     })
     return routineString
 }
+
+
 const getBreakfest = () => {
     const foodOne = getRandom(breakfestFoods)
     const foodTwo = getRandom(breakfestFoods)
@@ -53,12 +55,18 @@ const getBreakfest = () => {
 
 const getMorningPlan = () => {
     const breakfest = getBreakfest()
-    const activitys = activityList()
-    morningMessage = `Good Morning!
-    Start your day off right with this randomized morning schedule! 
-    Begin for brushing your teeth & enjoying some food. ${breakfest}
-    After your all done you should start your day off with:
-    ${activitys}
-    Have a Great Day! See you tommorw.
-    `
+    const activitys = getActivityList()
+    morningMessage = 
+`Good Morning!
+Start your day off right with this randomized morning schedule! 
+Begin your morning by brushing your teeth & enjoying some food. 
+${breakfest}
+After your all done you should start your day off with:
+${activitys}
+Have a Great Day! See you tommorw.
+`
+    return morningMessage
+
 }
+
+console.log(getMorningPlan())
